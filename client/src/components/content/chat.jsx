@@ -1,12 +1,15 @@
 import React, {
   forwardRef,
   Fragment,
-  useImperativeHandle, useRef
-} from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { GptIcon } from '../../assets'
-import { insertNew } from '../../redux/messages'
-import './style.scss'
+  useImperativeHandle,
+  useRef,
+  useState,
+  useEffect
+} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { GptIcon, BuzzIcon, Graphic, BtnDownload } from "../../assets";
+import { insertNew } from "../../redux/messages";
+import "./style.scss";
 
 const Chat = forwardRef(({ error }, ref) => {
 
@@ -17,9 +20,13 @@ const Chat = forwardRef(({ error }, ref) => {
   const { user, messages } = useSelector((state) => state)
   const { latest, content, all } = messages
 
+  const [showAfterBlink, setShowAfterBlink] = useState(false);
+
   const loadResponse = (stateAction,
     response = content,
     chatsId = latest?.id) => {
+      
+    setShowAfterBlink(false);
 
     clearInterval(window.interval)
 
@@ -52,6 +59,7 @@ const Chat = forwardRef(({ error }, ref) => {
     }
     stateAction({ type: 'resume', status: false })
     clearInterval(window.interval)
+    setShowAfterBlink(true); 
   }
 
   useImperativeHandle(ref, () => ({
@@ -61,9 +69,12 @@ const Chat = forwardRef(({ error }, ref) => {
       if (contentRef?.current) {
         contentRef.current.innerHTML = ''
         contentRef?.current?.classList.add("blink")
+        setShowAfterBlink(false);
       }
     }
   }))
+
+  const someCondition = latest?.prompt?.length > 10;
 
   return (
     <div className='Chat'>
@@ -84,12 +95,20 @@ const Chat = forwardRef(({ error }, ref) => {
 
               <div className="res">
                 <div className='icon'>
-                  <GptIcon />
+                  <BuzzIcon />
                 </div>
                 <div className='txt'>
                   <span>
                     {obj?.content}
                   </span>
+                  <h1>TESTANDO</h1>
+
+                  <Graphic
+                    title="Teste de gráfico 1"
+                    uniqueId="1"
+                  />
+
+                  <BtnDownload/>
                 </div>
               </div>
             </Fragment>
@@ -111,14 +130,32 @@ const Chat = forwardRef(({ error }, ref) => {
 
             <div className="res">
               <div className='icon'>
-                <GptIcon />
+                <BuzzIcon />
                 {error && <span>!</span>}
               </div>
               <div className='txt'>
                 {
                   error ? <div className="error">
                     Something went wrong. If this issue persists please contact us through our help center at help.openai.com.
-                  </div> : <span ref={contentRef} className="blink" />
+                  </div> : (
+                    <>
+                      <span ref={contentRef} className="blink" />
+                      {showAfterBlink && 
+                        (
+                          <>
+                            <Graphic
+                              title="Teste de gráfico 2"
+                              uniqueId="1"
+                            />
+                            
+                            <BtnDownload />
+                          </>
+
+                        )
+
+                      } {}
+                    </>
+                  )
                 }
               </div>
             </div>
@@ -128,4 +165,5 @@ const Chat = forwardRef(({ error }, ref) => {
     </div>
   )
 })
+
 export default Chat

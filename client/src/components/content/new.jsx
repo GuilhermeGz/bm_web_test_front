@@ -1,86 +1,69 @@
-import React, { memo } from 'react'
-import { useDispatch } from 'react-redux'
-import { Sun, Thunder, Warning } from '../../assets'
-import { livePrompt } from '../../redux/messages'
-import './style.scss'
+import React, { memo } from "react";
+import { useDispatch } from "react-redux";
+import { Sun, Thunder, Warning } from "../../assets";
+import { livePrompt } from "../../redux/messages";
+import "./style.scss";
 
 const New = memo(() => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   return (
-    <div className='New'>
+    <div className="New">
       <div>
-        <h1 className='title currentColor'>ChatGPT</h1>
+        <h1 className="title currentColor">BuzzProject</h1>
       </div>
 
       <div className="flex">
-        <div className='inner'>
-          <div className='card'>
+        <div className="inner">
+          <div className="card">
             <Sun />
-            <h4 className='currentColor'>Examples</h4>
+            <h4 className="currentColor">Exemplos</h4>
           </div>
 
-          <div className='card card-bg hover' onClick={() => {
-            dispatch(livePrompt("Explain quantum computing in simple terms"))
-          }}>
-            <p className='currentColor'>"Explain quantum computing in simple terms" →</p>
+          <div
+            className="card card-bg hover"
+            onClick={() => {
+              dispatch(livePrompt("Quais os posts mais engajados?"));
+            }}
+          >
+            <p className="currentColor">"Quais os posts mais engajados?" →</p>
           </div>
-
-          <div className='card card-bg hover' onClick={() => {
-            dispatch(livePrompt("Got any creative ideas for a 10 year old’s birthday?"))
-          }}>
-            <p className='currentColor'>"Got any creative ideas for a 10 year old’s birthday?" →</p>
-          </div>
-
-          <div className='card card-bg hover' onClick={() => {
-            dispatch(livePrompt("How do I make an HTTP request in Javascript?"))
-          }}>
-            <p className='currentColor'>"How do I make an HTTP request in Javascript?" →</p>
-          </div>
-
         </div>
 
-        <div className='inner'>
+        <div className="inner">
           <div className="card">
             <Thunder />
-            <h4 className="currentColor">Capabilities</h4>
+            <h4 className="currentColor">Capacidades</h4>
           </div>
 
-          <div className='card card-bg'>
-            <p className='currentColor'>Remembers what user said earlier in the conversation</p>
+          <div className="card card-bg">
+            <p className="currentColor">
+              Busca e análise de postagens em redes sociais, incluindo
+              Instagram, Facebook e Twitter.
+            </p>
           </div>
-
-          <div className='card card-bg'>
-            <p className='currentColor'>Allows user to provide follow-up corrections</p>
-          </div>
-
-          <div className='card card-bg'>
-            <p className='currentColor'>Trained to decline inappropriate requests</p>
-          </div>
-
         </div>
 
-        <div className='inner'>
+        <div className="inner">
           <div className="card">
             <Warning />
-            <h4 className="currentColor">Limitations</h4>
+            <h4 className="currentColor">Limitações</h4>
           </div>
 
-          <div className='card card-bg'>
-            <p className='currentColor'>May occasionally generate incorrect information</p>
+          <div className="card card-bg">
+            <p className="currentColor">
+              Os posts utilizados para as análises se restringem a 2023.
+            </p>
           </div>
 
-          <div className='card card-bg'>
-            <p className='currentColor'>May occasionally produce harmful instructions or biased content</p>
+          <div className="card card-bg">
+            <p className="currentColor">
+              O período máximo a ser trabalhado é de 30 dias.
+            </p>
           </div>
-
-          <div className='card card-bg'>
-            <p className='currentColor'>Limited knowledge of world and events after 2021</p>
-          </div>
-
         </div>
       </div>
     </div>
-  )
-})
+  );
+});
 
-export default New
+export default New;

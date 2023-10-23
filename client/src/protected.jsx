@@ -6,6 +6,14 @@ import instance from "./config/instance";
 import { emptyUser, insertUser } from "./redux/user";
 import { emptyAllRes } from "./redux/messages";
 
+ function checkLoginMock() {
+   return {
+     status: 405,
+     message: 'Not Logged',
+   };
+ }
+
+
 const ProtectedRoute = ({ offline, authed }) => {
   const [component, setComponent] = useState(null);
 
@@ -19,8 +27,13 @@ const ProtectedRoute = ({ offline, authed }) => {
       let res = null;
 
       try {
+        //Aqui
         res = await instance.get("/api/user/checkLogged");
+        //res = checkLoginMock();
+        //console.log("aqui")
+        
         if (res?.data?.data) {
+          //console.log("aqui")
           dispatch(insertUser(res?.data?.data));
         }
       } catch (err) {

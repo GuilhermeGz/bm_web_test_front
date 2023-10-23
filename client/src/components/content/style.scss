@@ -118,6 +118,8 @@
     padding-right: 12em;
     padding-top: 7em;
     padding-bottom: 12rem;
+    font-family: Lato;
+
 
     @media only screen and (max-width: 1300px) {
         padding-left: 5em;
@@ -176,6 +178,7 @@
     display: block;
     text-align: left;
     padding-bottom: 12rem;
+    font-family: Lato;
 
     .qs {
         padding-top: 1.5rem;
@@ -252,7 +255,7 @@
             width: 30px;
             height: 30px;
             border: none;
-            background: rgb(16, 163, 127);
+            background: white;
             justify-content: center;
             align-items: center;
             border-radius: 2px;
@@ -281,8 +284,13 @@
                 justify-content: center;
                 right: -4px;
                 bottom: -4px;
-                color: rgba(255,255,255,1);
-                border: 1px solid rgba(255,255,255,1);
+                color: rgba(255, 255, 255, 1);
+                border: 1px solid rgba(255, 255, 255, 1);
+            }
+
+            img {
+                width: 30px;
+                height: 30px;
             }
         }
 

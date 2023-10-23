@@ -72,7 +72,7 @@ const Forgot = () => {
           secret={secret}
         />
 
-        <div className="bottum">
+        {/* <div className="bottum">
           <div className="start">
             <a href="https://openai.com/policies/terms-of-use" target="_blank">
               Terms of use
@@ -86,7 +86,7 @@ const Forgot = () => {
               Privacy Policy
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -185,7 +185,7 @@ const InputArea = ({ status, chatRef, stateAction }) => {
                       chatRef.current.loadResponse(stateAction);
                     }}
                   >
-                    <Reload /> Regenerate response
+                    <Reload /> Gerar novamente
                   </button>
                 ) : (
                   <button
@@ -193,7 +193,7 @@ const InputArea = ({ status, chatRef, stateAction }) => {
                       chatRef.current.stopResponse(stateAction);
                     }}
                   >
-                    <Stop /> Stop generating
+                    <Stop /> Parar
                   </button>
                 )}
               </>
@@ -203,7 +203,7 @@ const InputArea = ({ status, chatRef, stateAction }) => {
           <div className="flexBody">
             <div className="box">
               <textarea
-                placeholder="Send a message..."
+                placeholder="Envie sua mensagem..."
                 ref={textAreaRef}
                 value={prompt}
                 onChange={(e) => {
@@ -258,7 +258,7 @@ const InputArea = ({ status, chatRef, stateAction }) => {
         </div>
       )}
 
-      <div className="text">
+      {/* <div className="text">
         <a
           target="_blank"
           href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
@@ -267,7 +267,7 @@ const InputArea = ({ status, chatRef, stateAction }) => {
         </a>{" "}
         Free Research Preview. Our goal is to make AI systems more natural and
         safe to interact with. Your feedback will help us improve.
-      </div>
+      </div> */}
     </div>
   );
 };

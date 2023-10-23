@@ -12,7 +12,7 @@ const Signup = () => {
   const [pending, setPending] = useState(false);
 
   const { id } = useParams();
-
+  console.log(id);
   const dispatch = useDispatch();
 
   const location = useLocation();
@@ -70,7 +70,7 @@ const Signup = () => {
           <>
             <SignupComponent />
 
-            <div className="bottum">
+            {/* <div className="bottum">
               <div className="start">
                 <a
                   href="https://openai.com/policies/terms-of-use"
@@ -87,7 +87,7 @@ const Signup = () => {
                   Privacy Policy
                 </a>
               </div>
-            </div>
+            </div> */}
           </>
         )}
       </div>

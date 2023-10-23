@@ -44,11 +44,9 @@
 
   // input area
   .inputArea {
-    background-image: linear-gradient(
-      180deg,
-      hsla(0, 0%, 100%, 0) 13.94%,
-      #fff 54.73%
-    );
+    background-image: linear-gradient(180deg,
+        hsla(0, 0%, 100%, 0) 13.94%,
+        #fff 54.73%);
 
     @media screen and (max-width: 767px) {
       border-top: 1px solid #d9d9e3;
@@ -85,6 +83,7 @@
 
       textarea {
         color: #333;
+        font-family: Lato;
 
         &::-webkit-scrollbar-thumb {
           background: rgba(236, 236, 241, 1);
@@ -130,11 +129,9 @@
 
   // input area
   .inputArea {
-    background-image: linear-gradient(
-      180deg,
-      rgba(53, 55, 64, 0),
-      #353740 58.85%
-    );
+    background-image: linear-gradient(180deg,
+        rgba(53, 55, 64, 0),
+        #353740 58.85%);
 
     @media screen and (max-width: 767px) {
       border-top: 1px solid hsla(0, 0%, 100%, 0.2);
@@ -505,6 +502,7 @@
       p {
         text-align: center;
         margin-bottom: 0.5rem;
+        font-family: "Lato";
       }
 
       .btns {
@@ -514,19 +512,21 @@
         margin-top: 0.5rem;
 
         button {
-          width: 5em;
+          width: 7em;
           height: 3em;
           text-align: center;
-          background: rgba(16, 163, 127, 1);
+          background: #FA6500;
           color: rgba(255, 255, 255, 1);
           border-radius: 0.25rem;
           border: none;
           cursor: pointer;
           transition: all 0.1s ease-in-out;
           -moz-transition: all 0.1s ease-in-out;
+          font-family: "Lato";
 
           &:hover {
-            background: rgba(26, 127, 100, 1);
+            background: #E05100;
+            transform: scale(1.1);
           }
         }
       }
